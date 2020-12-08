@@ -1,27 +1,14 @@
 {
   "ignition": {
-    "version": "3.2.0"
+    "version": "3.0.0"
   },
-  "storage": {
-    "files": [
+  "passwd": {
+    "users": [
       {
-        "path": "/var/home/core/NessusAgent-8.2.1-fc20.x86_64.rpm",
-        "contents": {
-          "source": "https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/12053/download?i_agree_to_tenable_license_agreement=true",
-          "verification": {
-            "hash": "sha256-10734e10f1e38d0bede23e799819efdee5068f0d48d1483c67a59e2582f4b84a"
-          }
-        },
-        "mode": 420
-      }
-    ]
-  },
-  "systemd": {
-    "units": [
-      {
-        "contents": "[Unit]\nDescription=Install additional packages\n\n[Service]\nType=oneshot\nExecStart=rpm-ostree install /var/home/core/NessusAgent-8.2.1-fc20.x86_64.rpm --reboot\n\n[Install]\nWantedBy=multi-user.target\n",
-        "enabled": true,
-        "name": "rpm-overlay.service"
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAnIVcQbvHQ6AtMDuv4Fd0geDA8oe5rypj5ktf8FQ42T4n5R8q+Ux1gX0TO941wLvEBt8DobDJpgMyD5atzGSaPw0PxC1NTNlsu9OfdQk8aRmOosbgcBa0msz0cyT2yTUR/bRP4cJc6KnWzDu7Z8Kph3G9HWWtdykkkP9FPkh+25XIOhXbNXTl6ZYUCH7FR3Qd53gLGT5KRnvvd5NGmWZ63rQvMChPRI1QyH2kzz6Flb4HjIy7PLudkae3cB8NEp31oLLzsI/G9/IMp5c9kryZx9RiyVcuhbLS6mYUAEOZTQKET/t2nINGLfnFFFlG43R7UpvUmJZ7OTk5f3ClWKhrPw=="
+        ]
       }
     ]
   }
