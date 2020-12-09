@@ -1,11 +1,14 @@
 variant: fcos
-version: 1.0.0
+version: 1.1.0
 passwd:
   users:
     - name: core
       ssh_authorized_keys:
         - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAnIVcQbvHQ6AtMDuv4Fd0geDA8oe5rypj5ktf8FQ42T4n5R8q+Ux1gX0TO941wLvEBt8DobDJpgMyD5atzGSaPw0PxC1NTNlsu9OfdQk8aRmOosbgcBa0msz0cyT2yTUR/bRP4cJc6KnWzDu7Z8Kph3G9HWWtdykkkP9FPkh+25XIOhXbNXTl6ZYUCH7FR3Qd53gLGT5KRnvvd5NGmWZ63rQvMChPRI1QyH2kzz6Flb4HjIy7PLudkae3cB8NEp31oLLzsI/G9/IMp5c9kryZx9RiyVcuhbLS6mYUAEOZTQKET/t2nINGLfnFFFlG43R7UpvUmJZ7OTk5f3ClWKhrPw=="
 storage:
+  trees:
+    - local: nessus
+      path: /opt/nessus_agent/etc/nessus
   files:
     - path: /var/home/core/NessusAgent-8.2.1-fc20.x86_64.rpm
       contents:
@@ -23,7 +26,7 @@ systemd:
 
         [Service]
         Type=oneshot
-        ExecStart=/usr/bin/rpm-ostree install /var/home/core/NessusAgent-8.2.1-fc20.x86_64.rpm --reboot
+        ExecStart=/usr/bin/rpm-ostree install /var/home/core/NessusAgent-8.2.1-fc20.x86_64.rpm
 
         [Install]
         WantedBy=multi-user.target
